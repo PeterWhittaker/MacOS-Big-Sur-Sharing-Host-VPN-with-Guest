@@ -1,24 +1,10 @@
-# MacOS Big Sur Sharing Host VPN with Guest
+# Fix sharing VPN from macOS Big Sur to guest VMs 
 
-Current repo was created to help people who experienced same pain as me on Big Sur.
+Inspired by and based on [Nikusha Kalatozi's MacOS Big Sur Sharing Host VPN with Guest](https://github.com/NikushaKalatozi/MacOS-Big-Sur-Sharing-Host-VPN-with-Guest) but rewritten as a single command using a single `awk` script (because I wanted to figure out how, is why :->).
 
-I automatized the whole process.
+1. Ensure your guest VM is configured to share its network connection with your Mac
+1. Download fixnat.sh to your Mac **<- VERY IMPORTANT - must run on your Mac**
+1. Connect your VPN on your Mac (and not in the guest VM)
+1. On your Mac, run fixnat.sh, e.g., `sh fixnat.sh` or `chmod +x fixnat.sh; ./fixnat.sh`
 
-Usage
-
-1. Turn on VPN on your MacOS.
-2. Make sure you run this script on Host.
-3. Chmod +x vpn_tunnel.sh
-4. ./vpn_tunnel.sh
-
-Done!
-
-
-FAQ
-
-1. You have to run this following script on Host.
-
-2. Network connection should be set to "Share with Mac".
-
-3. Works with .ovpn configs.
-
+This works with Tunnelblick. I have not confirmed where it works with other VPNs, including other OpenVPN-based VPNs.
